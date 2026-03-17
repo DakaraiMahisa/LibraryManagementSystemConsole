@@ -13,23 +13,21 @@ public UserService(LibraryDatabase database, AuthService authService,Book book) 
     this.book = book;
 }
 
-public void addBookOrModifyBookDetails(String title,String author,String isbn,Integer quantity){
-    if(authService.isAuthenticated()&&authService.isAdmin()){
-        if(database.getBookInventory().containsKey(isbn)){
+public void addBookOrModifyBookDetails(String title,String author,String isbn,Integer quantity) {
+    if (authService.isAuthenticated() && authService.isAdmin()) {
+        if (database.getBookInventory().containsKey(isbn)) {
             Book existingBook = database.getBookInventory().get(isbn);
             existingBook.setQuantity(existingBook.getQuantity() + quantity);
             existingBook.setAvailableQuantity(existingBook.getAvailableQuantity() + quantity);
             System.out.println("Book details updated successfully. New quantity: " + existingBook.getQuantity());
-        }else{
-            Book newBook =  new Book(title,author,isbn,quantity);
+        } else {
+            Book newBook = new Book(title, author, isbn, quantity);
             newBook.setAvailableQuantity(quantity);
-            database.getBookInventory().put(isbn,newBook);
+            database.getBookInventory().put(isbn, newBook);
             System.out.println("Book added successfully to the inventory.");
         }
     }
 
+
 }
-
-
-
 }

@@ -1,19 +1,22 @@
 package librarymanagementsystem.entity;
 
 import librarymanagementsystem.enums.Role;
+import librarymanagementsystem.enums.UserType;
 
 public class User {
     private String name;
     private String userId;
     private String email;
     private String password;
+    private UserType userType;
     private Role role;
 
-    public User(String name, String userId, String email, String password, Role role) {
+    public User(String name, String userId, String email, String password, UserType userType,Role role) {
         this.name = name;
         this.userId = userId;
         this.email = email;
         this.password = password;
+        this.userType = userType;
         this.role = role;
     }
 
@@ -55,5 +58,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }
