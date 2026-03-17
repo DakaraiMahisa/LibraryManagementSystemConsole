@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="" />
+    <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/config/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/enums/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/LibraryManagementApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/LibraryManagementApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +32,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DakaraiMahisa"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DakaraiMahisa/LibraryManagementSystemConsole.git",
+    "accountId": "042e9ca7-785f-4ec3-8dc2-9afbc7df829d"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -31,16 +55,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LibraryManagementApp.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "feature/userservice",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="LibraryManagementApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="ADMIN_EMAIL" value="dakaraimahisa02@gmail.com" />
+        <env name="ADMIN_PASSWORD" value="102030" />
+        <env name="ADMIN_USER_ID" value="23EC062" />
+        <env name="ADMIN_NAME" value="Dakarai Mahisa" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="librarymanagementsystem.LibraryManagementApp" />
+      <module name="LibraryManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="librarymanagementsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LibraryManagementApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="" />
