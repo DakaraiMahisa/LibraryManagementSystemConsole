@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/config/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/librarymanagementsystem/enums/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/LibraryManagementApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/LibraryManagementApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/enums/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
