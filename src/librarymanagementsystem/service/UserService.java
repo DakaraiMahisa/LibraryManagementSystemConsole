@@ -26,8 +26,8 @@ public void addBookOrModifyBookDetails(String title,String author,String isbn,In
             database.getBookInventory().put(isbn, newBook);
             System.out.println("Book added successfully to the inventory.");
         }
+    } else {
+        System.out.println("Unauthorized access. Only admins can add or modify book details.");
     }
-
-
 }
 }
