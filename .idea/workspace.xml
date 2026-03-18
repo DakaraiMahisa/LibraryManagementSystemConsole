@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="" />
     <list default="true" id="243aac96-7287-4ea8-b79a-3b644c817b9c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/librarymanagementsystem/service/UserService.java" afterDir="false" />
     </list>
