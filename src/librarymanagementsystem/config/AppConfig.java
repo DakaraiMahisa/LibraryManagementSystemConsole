@@ -4,11 +4,23 @@ import librarymanagementsystem.database.LibraryDatabase;
 import librarymanagementsystem.entity.User;
 import librarymanagementsystem.enums.Role;
 import librarymanagementsystem.enums.UserType;
+import librarymanagementsystem.service.AdminService;
+import librarymanagementsystem.service.AuthService;
+import librarymanagementsystem.service.BorrowerService;
 
 public class AppConfig {
     private final LibraryDatabase libraryDatabase;
-    public AppConfig() {
-        this.libraryDatabase = new LibraryDatabase();
+    private final AdminService adminService;
+    private final AuthService authService;
+    private final BorrowerService borrowerService;
+    private final Menu menu;
+
+    public AppConfig(){
+        this.libraryDatabase =new LibraryDatabase();
+        this.authService = new AuthService(libraryDatabase);
+        this.adminService = new AdminService(libraryDatabase,authService);
+        this.borrowerService = new BorrowerService(libraryDatabase,authService);
+        this.menu = new Menu(authService,adminService,borrowerService);
     }
     public void initialize() {
         bootstrapAdmin();
@@ -31,7 +43,7 @@ public class AppConfig {
         }
 
     }
-    public LibraryDatabase getLibraryDatabase() {
-        return libraryDatabase;
+    public Menu getMenu() {
+        return menu;
     }
 }

@@ -8,15 +8,14 @@ import librarymanagementsystem.enums.UserType;
 import java.util.Scanner;
 
 public class AuthService {
-    private final User user;
     private final LibraryDatabase libraryDatabase;
     private static Integer userIdCounter = 1;
     private User loggedInUser;
     private UserType userType;
     private Role role;
 
-    public AuthService(User user, LibraryDatabase libraryDatabase) {
-        this.user = user;
+    public AuthService(LibraryDatabase libraryDatabase) {
+
         this.libraryDatabase = libraryDatabase;
     }
 
