@@ -1,12 +1,23 @@
 package librarymanagementsystem.config;
 
 import librarymanagementsystem.database.LibraryDatabase;
+import librarymanagementsystem.service.AdminService;
+import librarymanagementsystem.service.AuthService;
+import librarymanagementsystem.service.BorrowerService;
+
+import java.util.Scanner;
 
 public class Menu {
 
-    private final LibraryDatabase libraryDatabase;
-    public Menu(LibraryDatabase libraryDatabase) {
-        this.libraryDatabase = libraryDatabase;
+    private final AuthService authService;
+    private final AdminService adminService;
+    private final BorrowerService borrowerService;
+    public Menu(AuthService authService,
+                AdminService adminService,
+                BorrowerService borrowerService) {
+        this.authService = authService;
+        this.adminService = adminService;
+        this.borrowerService = borrowerService;
     }
     public static void displayMainMenu() {
         System.out.println("Welcome to the Library Management System");
@@ -26,15 +37,88 @@ public class Menu {
     public static void displayAdminMenu() {
         System.out.println("Admin Menu:");
         System.out.println("1. Add Book");
-        System.out.println("2. Remove Book");
-        System.out.println("3. View All Users");
-        System.out.println("4. Logout");
+        System.out.println("2. Add Admin");
+        System.out.println("3. View Borrowers");
+        System.out.println("4. search for a book");
+        System.out.println("5. Logout");
     }
 
     public void start() {
+        Scanner scan =  new Scanner(System.in);
         boolean running = true;
             while (running) {
+                if(!authService.isAuthenticated()){
                 displayMainMenu();
+                int choice =  scan.nextInt();
+                switch(choice){
+                    case 1:
+                         authService.register();
+                         break;
+                    case 2:
+                         authService.login();
+                         break;
+                    case 3:
+                         running=false;
+                         break;
+                    default:
+                        System.out.println("Invalid choice");
+                }
+                }else if(authService.isAdmin()){
+                     displayAdminMenu();
+                     int choice = scan.nextInt();
+                     switch(choice){
+                         case 1:
+                             System.out.println("Enter the book title:");
+                             String title =scan.nextLine();
+                             System.out.println("Enter the book author:");
+                             String author = scan.nextLine().trim();
+                             System.out.println("Enter the book isbn:");
+                             String isbn = scan.next().trim();
+                             System.out.println("Enter the book quantity:");
+                             int quantity = scan.nextInt();
+                             adminService.addBookOrModifyBookDetails(title,author,isbn,quantity);
+                             break;
+                         case 2:
+                             System.out.println("Enter the email of the person to be assigned admin role");
+                             String email = scan.next().trim();
+                             adminService.addOtherAdmins(email);
+                             break;
+                         case 3:
+                             adminService.viewBorrowers();
+                             break;
+                         case 4:
+                             System.out.println("Enteh the book isbn");
+                             String isbn1 = scan.next().trim();
+                             adminService.searchBooksByISBN(isbn1);
+                             break;
+                         case 5:
+                              authService.logout();
+                              break;
+                         default:
+                             System.out.println("Invalid choice");
+                     }
+                }else{
+                    displayUserMenu();
+                    int choice = scan.nextInt();
+                    switch(choice){
+                        case 1:
+                             borrowerService.viewBooks();
+                             break;
+                        case 2:
+                            System.out.println("Enter the book isbn: ");
+                            String isbn = scan.next().trim();
+                            borrowerService.borrowBook(isbn);
+                            break;
+                        case 3:
+                            borrowerService.returnBook();
+                            break;
+                        case 4:
+                            authService.logout();
+                            break;
+                        default:
+                            System.out.println("Invalid choice");
+                    }
+                }
             }
     }
 }
