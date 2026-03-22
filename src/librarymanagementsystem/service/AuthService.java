@@ -88,4 +88,8 @@ public class AuthService {
 
         return loggedInUser != null && loggedInUser.getRole() == Role.ADMIN;
     }
+
+    public User getLoggedInUser() {
+        return loggedInUser;
+    }
 }
