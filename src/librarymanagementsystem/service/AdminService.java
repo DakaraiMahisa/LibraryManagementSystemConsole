@@ -2,6 +2,7 @@ package librarymanagementsystem.service;
 
 import librarymanagementsystem.database.LibraryDatabase;
 import librarymanagementsystem.entity.Book;
+import librarymanagementsystem.entity.Borrower;
 import librarymanagementsystem.entity.User;
 import librarymanagementsystem.enums.Role;
 import librarymanagementsystem.enums.UserType;
@@ -118,7 +119,34 @@ public void searchBooksByISBN(String isbn) {
                 "Please log in to search for books.");
     }
 }
-public void manageBorrowers(){}
+    public void manageBorrowers(String email, double newLimit) {
+
+        if (!(authService.isAuthenticated() && authService.isAdmin())) {
+            System.out.println("Unauthorized access. Please log in as admin.");
+            return;
+        }
+
+        if (newLimit < 0) {
+            System.out.println("Fine limit must be non-negative.");
+            return;
+        }
+
+        Borrower borrower = database.getBorrowers().get(email);
+
+        if (borrower == null) {
+            System.out.println("This user has not borrowed any books yet.");
+            return;
+        }
+
+        double oldLimit = borrower.getFineLimit();
+        borrower.setFineLimit(newLimit);
+
+        System.out.println("Fine limit updated from " + oldLimit + " to " + newLimit);
+
+        if (borrower.getCurrentFine() > borrower.getFineLimit()) {
+            System.out.println("Warning: Borrower has exceeded the new fine limit and will be blocked from borrowing.");
+        }
+    }
 
     public void viewBorrowers() {
     }

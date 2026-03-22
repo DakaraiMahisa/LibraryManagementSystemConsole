@@ -31,7 +31,11 @@ public class Menu {
         System.out.println("1. View Books");
         System.out.println("2. Borrow Book");
         System.out.println("3. Return Book");
-        System.out.println("4. Logout");
+        System.out.println("4. Search book");
+        System.out.println("5. Add to cart");
+        System.out.println("6. View cart");
+        System.out.println("7. Checkout your cart");
+        System.out.println("8. Logout");
     }
 
     public static void displayAdminMenu() {
@@ -40,7 +44,8 @@ public class Menu {
         System.out.println("2. Add Admin");
         System.out.println("3. View Borrowers");
         System.out.println("4. search for a book");
-        System.out.println("5. Logout");
+        System.out.println("5. Manage Borrowers");
+        System.out.println("6. Logout");
     }
 
     public void start() {
@@ -50,6 +55,7 @@ public class Menu {
                 if(!authService.isAuthenticated()){
                 displayMainMenu();
                 int choice =  scan.nextInt();
+                    scan.nextLine();
                 switch(choice){
                     case 1:
                          authService.register();
@@ -66,10 +72,11 @@ public class Menu {
                 }else if(authService.isAdmin()){
                      displayAdminMenu();
                      int choice = scan.nextInt();
+                    scan.nextLine();
                      switch(choice){
                          case 1:
                              System.out.println("Enter the book title:");
-                             String title =scan.nextLine();
+                             String title =scan.nextLine().trim();
                              System.out.println("Enter the book author:");
                              String author = scan.nextLine().trim();
                              System.out.println("Enter the book isbn:");
@@ -87,11 +94,18 @@ public class Menu {
                              adminService.viewBorrowers();
                              break;
                          case 4:
-                             System.out.println("Enteh the book isbn");
+                             System.out.println("Enter the book isbn");
                              String isbn1 = scan.next().trim();
                              adminService.searchBooksByISBN(isbn1);
                              break;
                          case 5:
+                             System.out.println("Enter the borrower email:");
+                             String borrowerEmail = scan.next();
+                             System.out.println("Enter the new limit:");
+                             double newLimit = scan.nextDouble();
+                             adminService.manageBorrowers(borrowerEmail,newLimit);
+                             break;
+                         case 6:
                               authService.logout();
                               break;
                          default:
@@ -100,9 +114,10 @@ public class Menu {
                 }else{
                     displayUserMenu();
                     int choice = scan.nextInt();
+                    scan.nextLine();
                     switch(choice){
                         case 1:
-                             borrowerService.viewBooks();
+                             borrowerService.viewListOfBooksAvailable();
                              break;
                         case 2:
                             System.out.println("Enter the book isbn: ");
@@ -112,7 +127,18 @@ public class Menu {
                         case 3:
                             borrowerService.returnBook();
                             break;
-                        case 4:
+                        case 5:
+                            System.out.println("Enter book title");
+                            String title = scan.nextLine().trim();
+                            borrowerService.selectBookByTitleAndAddToCart(title);
+                             break;
+                        case 6:
+                            borrowerService.viewCart();
+                            break;
+                        case 7:
+                             borrowerService.checkout();
+                             break;
+                        case 8:
                             authService.logout();
                             break;
                         default:
